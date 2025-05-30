@@ -83,3 +83,23 @@ footer {
   display: flex;
   gap: 0.5rem;
 }
+
+.movie-tiny {
+  display: flex;
+  background-color: white;
+  opacity: 80%;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+.movie-tiny-infos {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.active-button {
+}

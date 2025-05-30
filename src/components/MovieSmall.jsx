@@ -1,6 +1,10 @@
 import { FaImdb } from "react-icons/fa";
+import { useAppContext } from "../context/AppContext";
+import Button from "./Button";
 
 function MovieSmall({ movie }) {
+  const { watchedMovies, setWatchedMovies } = useAppContext();
+  console.log(watchedMovies);
   return (
     <div className="movie-small">
       <img src={movie.Poster}></img>
@@ -17,6 +21,9 @@ function MovieSmall({ movie }) {
         >
           <FaImdb className="imdb-icon" />
         </a>
+        <Button onClick={() => setWatchedMovies((state) => [...state, movie])}>
+          ✅
+        </Button>
       </div>
     </div>
   );
