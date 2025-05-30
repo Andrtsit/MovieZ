@@ -1,15 +1,19 @@
+import { useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import { getData } from "../utils/getData";
 
 function Header() {
-  const { setData, setTotalResults, query, setQuery } = useAppContext();
+  const { setData, setTotalResults, setQuery } = useAppContext();
+  const [inputedValue, setInputedValue] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
+
     try {
-      const newData = await getData(query, 1);
+      const newData = await getData(inputedValue, 1);
       setData(newData.Search);
       setTotalResults(Number(newData.totalResults));
+      setQuery(inputedValue);
     } catch (err) {
       console.error("Failed to fetch data:", err);
     }
@@ -20,8 +24,8 @@ function Header() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="searchBar"></label>
         <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          value={inputedValue}
+          onChange={(e) => setInputedValue(e.target.value)}
           type="text"
           id="searchBar"
           placeholder="Search for a movie.."

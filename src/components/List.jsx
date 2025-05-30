@@ -5,7 +5,7 @@ function List() {
   const { data } = useAppContext();
   if (!data) return <section></section>;
   return (
-    <section>
+    <section className="scroll-smooth-dark ">
       <Page />
     </section>
   );

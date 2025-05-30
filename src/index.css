@@ -16,9 +16,8 @@ main {
   width: 100vw;
   display: grid;
   grid-template-rows: 1fr 5fr;
-  grid-template-columns: 2fr 1fr;
-  overflow: hidden;
-  background-color: black;
+  grid-template-columns: 1fr 1fr;
+  background-color: violet;
 }
 header {
   height: 10vh;
@@ -29,6 +28,12 @@ header {
   align-items: center;
   justify-content: center;
 }
+header input {
+  padding: 1rem;
+  border: none;
+  font-size: 2rem;
+  border-radius: 1rem;
+}
 section {
   height: 90vh;
   display: flex;
@@ -36,31 +41,33 @@ section {
   gap: 2rem;
   padding: 2rem;
   overflow: scroll;
-  background-color: grey;
+  background-color: #555;
   align-items: center;
 }
+
 img {
-  width: 150px;
+  max-height: 15rem;
+  max-width: 15rem;
+  justify-self: flex-start;
 }
+
 .movie-small {
   display: flex;
   width: 100%;
+  height: 20%;
   padding: 1rem;
-  gap: 2rem;
+  gap: 1rem;
   border: 2px solid black;
   border-radius: 0.5rem;
 }
 .movie-small-infos {
   width: 100%;
-  font-size: 2rem;
   display: flex;
+  gap: 0.5rem;
   flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
 }
 .imdb-icon {
-  font-size: 4rem;
+  font-size: 3rem;
   color: black;
   background-color: #f5c518;
   border-radius: 0.4rem;
@@ -73,6 +80,7 @@ img {
   transform: scale(1.1);
 }
 button {
+  align-self: flex-start;
   cursor: pointer;
   padding: 0.5rem 0.8rem;
   border-radius: 2rem;
@@ -83,23 +91,45 @@ footer {
   display: flex;
   gap: 0.5rem;
 }
-
-.movie-tiny {
-  display: flex;
-  background-color: white;
-  opacity: 80%;
-  width: 100%;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  gap: 1rem;
+.opened-movie {
+  font-size: 2.5rem;
+  align-items: flex-start;
+}
+.opened-movie img {
+  max-height: 35rem;
+}
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  overflow: auto; /* Still scrollable */
 }
 
-.movie-tiny-infos {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
-.active-button {
+/* Apply to the element you want to scroll */
+.scroll-smooth-dark {
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #555 transparent; /* Firefox */
+}
+
+/* WebKit browsers (Chrome, Safari, Edge) */
+.scroll-smooth-dark::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scroll-smooth-dark::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-smooth-dark::-webkit-scrollbar-thumb {
+  background-color: #555; /* Dark thumb */
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+.scroll-smooth-dark::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 9999px; /* pill shape */
 }

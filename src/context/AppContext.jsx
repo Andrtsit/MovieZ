@@ -6,17 +6,19 @@ export function AppProvider({ children }) {
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
   const [totalResults, setTotalResults] = useState(null);
-  const [watchedMovies, setWatchedMovies] = useState([]);
+  const [openedMovie, setOpenedMovie] = useState(null);
+  const numPages = Math.floor(totalResults / 10);
 
   return (
     <AppContext.Provider
       value={{
+        numPages,
         query,
         setQuery,
         data,
         setData,
-        watchedMovies,
-        setWatchedMovies,
+        openedMovie,
+        setOpenedMovie,
         totalResults,
         setTotalResults,
       }}
